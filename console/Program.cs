@@ -53,15 +53,15 @@ namespace console
 
 
             // 5. Hány operett rendelkezik 3-nál több felvonással?
-            int haromnalTobbFelvonas = 0;
+            List<int> egyediOperett3nalTobbFelvonas = new List<int>();
             foreach (var o in operettek)
             {
-                if (Services.TobbMintHaromFelvonasos(o))
+                if (!egyediOperett3nalTobbFelvonas.Contains(o.Muid) && Services.TobbMintHaromFelvonasos(o))
                 {
-                    haromnalTobbFelvonas++;
+                    egyediOperett3nalTobbFelvonas.Add(o.Muid);
                 }
             }
-            Console.WriteLine($"5. 3-nál több felvonásos operettek száma: {haromnalTobbFelvonas}");
+            Console.WriteLine($"5. 3-nál több felvonásos operettek száma: {egyediOperett3nalTobbFelvonas.Count()}");
         }
     }
 }
