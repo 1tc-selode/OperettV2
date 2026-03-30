@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="500">
     <Grid>
-
+        <StackPanel Margin="10">
+            <Label Content="Válasszon egy operettet">
+            </Label>
+            <ComboBox x:Name="cbOperett" Width="300" SelectionChanged="cbOperett_SelectionChanged"/>
+            <GroupBox Header="Operett adatai">
+                <StackPanel>
+                    <TextBlock x:Name="tbCim" FontSize="15" FontWeight="Bold"></TextBlock>
+                    <TextBlock x:Name="tbEredeti"></TextBlock>
+                    <TextBlock x:Name="tbEvszinhaz"></TextBlock>
+                    <TextBlock x:Name="tbFelvonas"></TextBlock>
+                </StackPanel>
+            </GroupBox>
+            <Label Content="Alkotók"></Label>
+            <DataGrid x:Name="dgAlkotok">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Név" Binding="{Binding Nev}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Típus" Binding="{Binding Nev}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Befejezés" x:Name="btnExit" Click="btnExit_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>
